@@ -14,26 +14,22 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     
     
     @IBOutlet weak var vestTempSliderVal: UILabel!  //value of slider for vest temp
-    
-//    @IBOutlet weak var pelTempSliderVal: UILabel!   //value of slider for peltier temp
-    
+        
     @IBOutlet weak var vestTempSlider: UISlider!    //the actual slider for vest input temp
-    
-//    @IBOutlet weak var pelTempSlider: UISlider!     //the actual slider for peltier input temp
-    
+        
     //label corresponding to the vest temperature reading from the arduino
     @IBOutlet weak var vestTempReading: UILabel!
-    
-    //label corresponding to the peltier temperature reading from arduino
-//    @IBOutlet weak var pelTempReading: UILabel!
-    
+        
     //label corresponding to the battery percentage
     @IBOutlet weak var batteryReading: UILabel!
     
     //label corresponding to heart rate
     @IBOutlet weak var heartReading: UILabel!
     
-    //label corresponding to cooling device status
+    //label corresponding to the cool state
+    @IBOutlet weak var coolStateReading: UILabel!
+    
+    //label corresponding to cool time
     @IBOutlet weak var coolReading: UILabel!
     
     //label corresponding to bluetooth status
@@ -53,10 +49,10 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     private var vestChar: CBCharacteristic?
     private var pelChar: CBCharacteristic?
     
-    //For Timer
-    @IBOutlet weak var countingLabel: UILabel!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    var NStimer = Timer()
+//    //For Timer
+//    @IBOutlet weak var countingLabel: UILabel!
+//    @IBOutlet weak var datePicker: UIDatePicker!
+//    var NStimer = Timer()
     
     //function that makes sure the app loads
     override func viewDidLoad() {
@@ -71,16 +67,14 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     
     //Get Custom Alerts
     let alertService = AlertService()
-
     //Tap the HeatSync Logo to get an alert
     @IBAction func DidTapLogo(_ sender: Any) {
         let HeatSyncLogo = alertService.alert(title: "About HeatSync", body: "Make sure that bluetooth connectivity is on. Use the scoll features to set your desired vest. You can manually turn on and off the vest with the power button. The battery at full charge lasts for about 1 to 3.5 hours depending on cooling power. Stay Cool.", buttonTitle: "OK")
         present(HeatSyncLogo, animated: true)
     }
     
-    //Timer
+    //Cool Timer
     let timerService = TimerService()
-    
     //Tap Cool Time
     @IBAction func DidTapCoolTime(_ sender: Any) {
         let CoolTime = timerService.alert(title: "Cooling Timer", buttonTitle: "OK") {
@@ -88,36 +82,64 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         present(CoolTime, animated: true)
     }
     
-//    //Change Date
-//    @IBAction func datePickerChanged(_ sender: Any) {
-//        let dateFormatter = DateFormatter()
-//
-//        dateFormatter.dateStyle = DateFormatter.Style.short
-//        dateFormatter.timeStyle = DateFormatter.Style.short
-//
-//        let strDate = dateFormatter.string(from: datePicker.date)
-//        coolReading.text = strDate
-//    }
+    //Cool State
+    let stateService = AlertService()
+    //Tap Cool State
+    @IBAction func DidTapState(_ sender: Any) {
+        let CoolState = stateService.alert(title: "Cool State", body: "These are the 5 levels of the cooling state: LESS, MORE, VERY, SUPER, and EXTREME.", buttonTitle: "OK")
+//        if vestTempSlider.value >= 30 && vestTempSlider.value <= 40 {
+//                coolStateReading.text = "EXTREME"
+//        }
+//        if vestTempSlider.value > 40 && vestTempSlider.value <= 50 {
+//                coolStateReading.text = "SUPER"
+//        }
+//        if vestTempSlider.value > 50 && vestTempSlider.value <= 60 {
+//                coolStateReading.text = "VERY"
+//        }
+//        if vestTempSlider.value > 60 && vestTempSlider.value <= 70 {
+//                coolStateReading.text = "MORE"
+//        }
+//        if vestTempSlider.value > 70 && vestTempSlider.value <= 80 {
+//                coolStateReading.text = "LESS"
+//        }
+        present(CoolState, animated: true)
+    }
+    
     
     //function that is called when power switch is turned on
     @IBAction func updatePower(_ sender: Any) {
         if powerSwitch.isOn {
-            //send bluetooth signal to turn on
-            let val: UInt8 = 1  // not sure if this will work
-            sendVal(withCharacteristic: powerChar!, withValue: Data([val]))
-        }
-        else{
-            //send bluetooth signal to turn off
-            let val: UInt8 = 0
-            sendVal(withCharacteristic: powerChar!, withValue: Data([val]))
+//            //send bluetooth signal to turn on
+//            let val: UInt8 = 1  // not sure if this will work
+//            sendVal(withCharacteristic: powerChar!, withValue: Data([val]))
+//        }
+//        else{
+//            //send bluetooth signal to turn off
+//            let val: UInt8 = 0
+//            sendVal(withCharacteristic: powerChar!, withValue: Data([val]))
         }
     }
     
     //function called when vest temp slider is moved
     @IBAction func sendVestTemp(_ sender: Any) {
         vestTempSliderVal.text = String(Int(vestTempSlider.value)) + "°F"
-        let val: UInt8 = UInt8(vestTempSlider.value)
-        sendVal(withCharacteristic: vestChar!, withValue: Data([val]))
+//        let val: UInt8 = UInt8(vestTempSlider.value)
+//        sendVal(withCharacteristic: vestChar!, withValue: Data([val]))
+        if vestTempSlider.value >= 30 && vestTempSlider.value <= 40 {
+                coolStateReading.text = "EXTREME"
+        }
+        if vestTempSlider.value > 40 && vestTempSlider.value <= 50 {
+                coolStateReading.text = "SUPER"
+        }
+        if vestTempSlider.value > 50 && vestTempSlider.value <= 60 {
+                coolStateReading.text = "VERY"
+        }
+        if vestTempSlider.value > 60 && vestTempSlider.value <= 70 {
+                coolStateReading.text = "MORE"
+        }
+        if vestTempSlider.value > 70 && vestTempSlider.value <= 80 {
+                coolStateReading.text = "LESS"
+        }
     }
     
     //function to send values over bluetooth
@@ -125,6 +147,9 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         //check if has write property
         if characteristic.properties.contains(.writeWithoutResponse) && peripheral != nil {
             peripheral.writeValue(value, for: characteristic, type: .withoutResponse)
+        }
+        else{
+            //
         }
     }
     
@@ -194,8 +219,7 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         if let characteristics = service.characteristics {
             for characteristic in characteristics {
                 
-                //this is example, basically saying if the UUID for a characteristic is found, connect
-                //to bluetooth characteristc
+                //this is example, basically saying if the UUID for a characteristic is found, connect to bluetooth characteristc
                 if characteristic.uuid == ArduinoPeripheral.editUUID {
                     vestChar = characteristic //example
                     vestTempSlider.isEnabled = true

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "logo.png",
+      "filename" : "HEATSYNC_White-removebg-preview.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "HEATSYNC_White-removebg-preview_2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "HEATSYNC_White-removebg-preview_3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -67,11 +67,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a lot of text just to see how the text will actually appear in the alert system box for this label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwd-3k-vRu">
                                         <rect key="frame" x="16" y="76" width="243" height="86"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="dwd-3k-vRu" firstAttribute="leading" secondItem="eFA-7J-osy" secondAttribute="leading" constant="16" id="4Lb-9U-IlF"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="w7D-o5-jOV" secondAttribute="bottom" id="8hG-pN-ZY4"/>

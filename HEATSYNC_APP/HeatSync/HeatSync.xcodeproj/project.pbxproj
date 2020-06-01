@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		359AE564247F9D240067C201 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359AE563247F9D240067C201 /* TimerViewController.swift */; };
-		359AE566247F9FD00067C201 /* TimerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359AE565247F9FD00067C201 /* TimerStoryboard.storyboard */; };
+		35CF1CB82484F01D006E70A1 /* TimerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35CF1CB62484F01D006E70A1 /* TimerStoryboard.storyboard */; };
 		35EEBD95247E17160028AC6F /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EEBD94247E17160028AC6F /* AlertService.swift */; };
 		35EEBD99247E18CA0028AC6F /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EEBD98247E18C90028AC6F /* AlertViewController.swift */; };
 		35EEBD9C247E18EB0028AC6F /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EEBD9A247E18EB0028AC6F /* AlertStoryboard.storyboard */; };
@@ -20,12 +20,11 @@
 		E24866132453C3C9009E66D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24866112453C3C9009E66D4 /* LaunchScreen.storyboard */; };
 		E2608E90246745F300370C62 /* ArduinoPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2608E8F246745F300370C62 /* ArduinoPeripheral.swift */; };
 		E2608E92246B48E900370C62 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E2608E91246B48E900370C62 /* README.rtf */; };
-		E2608E94246B550800370C62 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2608E93246B550800370C62 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		359AE563247F9D240067C201 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		359AE565247F9FD00067C201 /* TimerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerStoryboard.storyboard; sourceTree = "<group>"; };
+		35CF1CB72484F01D006E70A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TimerStoryboard.storyboard; sourceTree = "<group>"; };
 		35EEBD94247E17160028AC6F /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		35EEBD98247E18C90028AC6F /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		35EEBD9B247E18EB0028AC6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AlertStoryboard.storyboard; sourceTree = "<group>"; };
@@ -39,7 +38,6 @@
 		E24866142453C3C9009E66D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2608E8F246745F300370C62 /* ArduinoPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoPeripheral.swift; sourceTree = SOURCE_ROOT; };
 		E2608E91246B48E900370C62 /* README.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
-		E2608E93246B550800370C62 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +54,6 @@
 		E24865FA2453C3C8009E66D4 = {
 			isa = PBXGroup;
 			children = (
-				E2608E93246B550800370C62 /* Default-568h@2x.png */,
 				E24866052453C3C8009E66D4 /* HeatSync */,
 				E24866042453C3C8009E66D4 /* Products */,
 			);
@@ -84,7 +81,7 @@
 				E248660C2453C3C8009E66D4 /* Main.storyboard */,
 				E24866112453C3C9009E66D4 /* LaunchScreen.storyboard */,
 				35EEBD9A247E18EB0028AC6F /* AlertStoryboard.storyboard */,
-				359AE565247F9FD00067C201 /* TimerStoryboard.storyboard */,
+				35CF1CB62484F01D006E70A1 /* TimerStoryboard.storyboard */,
 				E248660F2453C3C9009E66D4 /* Assets.xcassets */,
 				E24866142453C3C9009E66D4 /* Info.plist */,
 			);
@@ -152,10 +149,9 @@
 				E24866132453C3C9009E66D4 /* LaunchScreen.storyboard in Resources */,
 				E24866102453C3C9009E66D4 /* Assets.xcassets in Resources */,
 				E2608E92246B48E900370C62 /* README.rtf in Resources */,
-				E2608E94246B550800370C62 /* Default-568h@2x.png in Resources */,
-				359AE566247F9FD00067C201 /* TimerStoryboard.storyboard in Resources */,
 				35EEBD9C247E18EB0028AC6F /* AlertStoryboard.storyboard in Resources */,
 				E248660E2453C3C8009E66D4 /* Main.storyboard in Resources */,
+				35CF1CB82484F01D006E70A1 /* TimerStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +175,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		35CF1CB62484F01D006E70A1 /* TimerStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35CF1CB72484F01D006E70A1 /* Base */,
+			);
+			name = TimerStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		35EEBD9A247E18EB0028AC6F /* AlertStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -325,12 +329,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XP3JL3S4BY;
 				INFOPLIST_FILE = TempControl2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ucsd.HeatSync;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NathanTran.HeatSync;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -342,12 +347,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XP3JL3S4BY;
 				INFOPLIST_FILE = TempControl2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ucsd.HeatSync;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NathanTran.HeatSync;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

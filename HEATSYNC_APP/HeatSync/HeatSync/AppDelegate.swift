@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import UserNotifications
+//import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
