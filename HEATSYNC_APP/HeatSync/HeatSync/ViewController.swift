@@ -10,8 +10,7 @@
 import UIKit
 import CoreBluetooth
 
-class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDelegate {
-    
+class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDelegate, UIPickerViewDelegate {
     
     @IBOutlet weak var vestTempSliderVal: UILabel!  //value of slider for vest temp
         
@@ -23,14 +22,8 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     //label corresponding to the battery percentage
     @IBOutlet weak var batteryReading: UILabel!
     
-    //label corresponding to heart rate
-    @IBOutlet weak var heartReading: UILabel!
-    
-    //label corresponding to the cool state
-    @IBOutlet weak var coolStateReading: UILabel!
-    
     //label corresponding to cool time
-    @IBOutlet weak var coolReading: UILabel!
+    @IBOutlet weak var coolTimeReading: UITextField!
     
     //label corresponding to bluetooth status
     @IBOutlet weak var btRead: UILabel!
@@ -49,96 +42,108 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     private var vestChar: CBCharacteristic?
     private var pelChar: CBCharacteristic?
     
-//    //For Timer
-//    @IBOutlet weak var countingLabel: UILabel!
-//    @IBOutlet weak var datePicker: UIDatePicker!
-//    var NStimer = Timer()
-    
     //function that makes sure the app loads
     override func viewDidLoad() {
         super.viewDidLoad()
         centralManager = CBCentralManager(delegate: self, queue:nil) //for bluetooth
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.systemBlue.cgColor,UIColor.white.cgColor]
+        gradientLayer.colors = [UIColor.systemTeal.cgColor,UIColor.white.cgColor]
         gradientLayer.locations = [0.20]
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        coolTimeReading.text = "00:00:00"
+        //For Cool Timer
+        createTimePicker()
     }
     
     //Get Custom Alerts
     let alertService = AlertService()
     //Tap the HeatSync Logo to get an alert
     @IBAction func DidTapLogo(_ sender: Any) {
-        let HeatSyncLogo = alertService.alert(title: "About HeatSync", body: "Make sure that bluetooth connectivity is on. Use the scoll features to set your desired vest. You can manually turn on and off the vest with the power button. The battery at full charge lasts for about 1 to 3.5 hours depending on cooling power. Stay Cool.", buttonTitle: "OK")
+        let HeatSyncLogo = alertService.alert(title: "About HeatSync", body: "Make sure that bluetooth connectivity is on. Use the scoll features to set your desired vest temperature. You can manually turn on and off the vest with the power button. The battery at full charge lasts for about 1.5 to 3 hours depending on the cooling power. Stay Cool.", buttonTitle: "OK")
         present(HeatSyncLogo, animated: true)
     }
     
     //Cool Timer
     let timerService = TimerService()
+    var seconds = 60
+    var countDown = Timer()
     //Tap Cool Time
     @IBAction func DidTapCoolTime(_ sender: Any) {
-        let CoolTime = timerService.alert(title: "Cooling Timer", buttonTitle: "OK") {
+//        let CoolTime = timerService.alert(title: "Cooling Timer", buttonTitle: "OK") {
+//        }
+//        present(CoolTime, animated: true)
+        countDown.invalidate()
+        coolTimeReading.text = "00:00:00"
+        powerSwitch.isOn = false
+    }
+    
+    //Alternative Cool Timer
+    let picker = UIDatePicker()
+    func createTimePicker() {
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        //Done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([done], animated: false)
+        coolTimeReading.inputAccessoryView = toolbar
+        coolTimeReading.inputView = picker
+        //format picker
+        picker.datePickerMode = .countDownTimer
+    }
+    func secondsToHMSColon (seconds: Int) -> String {
+        let hours = "\(seconds/3600)"
+        let minutes = "\((seconds % 3600) / 60)"
+        let seconds = "\((seconds % 3600) % 60)"
+        let hourStamp = hours.count > 1 ? hours : "0" + hours
+        let minuteStamp = minutes.count > 1 ? minutes : "0" + minutes
+        let secondStamp = seconds.count > 1 ? seconds : "0" + seconds
+        return "\(hourStamp):\(minuteStamp):\(secondStamp)"
+    }
+    @objc func counter() {
+        seconds -= 1
+        coolTimeReading.text = secondsToHMSColon (seconds: seconds)
+        if seconds < 1 {
+            countDown.invalidate()
+            coolTimeReading.text = "00:00:00"
+            powerSwitch.isOn = false
         }
-        present(CoolTime, animated: true)
     }
-    
-    //Cool State
-    let stateService = AlertService()
-    //Tap Cool State
-    @IBAction func DidTapState(_ sender: Any) {
-        let CoolState = stateService.alert(title: "Cool State", body: "These are the 5 levels of the cooling state: LESS, MORE, VERY, SUPER, and EXTREME.", buttonTitle: "OK")
-//        if vestTempSlider.value >= 30 && vestTempSlider.value <= 40 {
-//                coolStateReading.text = "EXTREME"
-//        }
-//        if vestTempSlider.value > 40 && vestTempSlider.value <= 50 {
-//                coolStateReading.text = "SUPER"
-//        }
-//        if vestTempSlider.value > 50 && vestTempSlider.value <= 60 {
-//                coolStateReading.text = "VERY"
-//        }
-//        if vestTempSlider.value > 60 && vestTempSlider.value <= 70 {
-//                coolStateReading.text = "MORE"
-//        }
-//        if vestTempSlider.value > 70 && vestTempSlider.value <= 80 {
-//                coolStateReading.text = "LESS"
-//        }
-        present(CoolState, animated: true)
+    @objc func donePressed() {
+        //Timer formatter
+        let timeData = picker.countDownDuration
+        seconds = Int(timeData)
+        countDown.invalidate()
+        countDown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.counter), userInfo: nil, repeats: true)
+        coolTimeReading.text = secondsToHMSColon (seconds: seconds)
+        self.view.endEditing(true)
     }
-    
-    
+
     //function that is called when power switch is turned on
     @IBAction func updatePower(_ sender: Any) {
-        if powerSwitch.isOn {
-//            //send bluetooth signal to turn on
-//            let val: UInt8 = 1  // not sure if this will work
-//            sendVal(withCharacteristic: powerChar!, withValue: Data([val]))
-//        }
-//        else{
-//            //send bluetooth signal to turn off
-//            let val: UInt8 = 0
-//            sendVal(withCharacteristic: powerChar!, withValue: Data([val]))
+        if powerSwitch.isOn == true {
+            //send bluetooth signal to turn on
+            let val: UInt8 = 1  // not sure if this will work
+            if powerChar != nil {
+            sendVal(withCharacteristic: powerChar!, withValue: Data([val]))
+            }
+        }
+        else{
+            //send bluetooth signal to turn off
+            let val: UInt8 = 0
+            if powerChar != nil {
+            sendVal(withCharacteristic: powerChar!, withValue: Data([val]))
+            }
         }
     }
     
     //function called when vest temp slider is moved
     @IBAction func sendVestTemp(_ sender: Any) {
         vestTempSliderVal.text = String(Int(vestTempSlider.value)) + "°F"
-//        let val: UInt8 = UInt8(vestTempSlider.value)
-//        sendVal(withCharacteristic: vestChar!, withValue: Data([val]))
-        if vestTempSlider.value >= 30 && vestTempSlider.value <= 40 {
-                coolStateReading.text = "EXTREME"
-        }
-        if vestTempSlider.value > 40 && vestTempSlider.value <= 50 {
-                coolStateReading.text = "SUPER"
-        }
-        if vestTempSlider.value > 50 && vestTempSlider.value <= 60 {
-                coolStateReading.text = "VERY"
-        }
-        if vestTempSlider.value > 60 && vestTempSlider.value <= 70 {
-                coolStateReading.text = "MORE"
-        }
-        if vestTempSlider.value > 70 && vestTempSlider.value <= 80 {
-                coolStateReading.text = "LESS"
+        let val: UInt8 = UInt8(vestTempSlider.value)
+        if vestChar != nil {
+        sendVal(withCharacteristic: vestChar!, withValue: Data([val]))
         }
     }
     
@@ -148,18 +153,13 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         if characteristic.properties.contains(.writeWithoutResponse) && peripheral != nil {
             peripheral.writeValue(value, for: characteristic, type: .withoutResponse)
         }
-        else{
-            //
-        }
     }
     
     //function to handle updating all the fields, this is an example
     func recieveInfo(){
         vestTempReading.text = String(100)
         batteryReading.text = String(100)
-        heartReading.text = String(100)
-        coolReading.text = String(100)
-        
+        coolTimeReading.text = String(100)
     }
     
     //If bluetooth on start scanning
@@ -233,15 +233,13 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     //bluetooth function
     //handler if disconnected from arduino
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?){
-        
         if peripheral == self.peripheral {
             print("Disconnected")
             vestTempSlider.value = 0
             vestTempReading.text = "N/A"
             vestTempSliderVal.text = "0"
-            batteryReading.text="N/A"
-            coolReading.text = "N/A"
-            heartReading.text = "N/A"
+            batteryReading.text = "N/A"
+            coolTimeReading.text = "N/A"
             btRead.text = "N/A"
             self.peripheral = nil
             

@@ -59,14 +59,17 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="DidTapAction:" destination="kIh-7M-uAW" eventType="touchUpInside" id="JOl-De-0S6"/>
+                                                    <action selector="DidTapAction:" destination="kIh-7M-uAW" eventType="touchUpInside" id="h7d-gm-SLx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <datePicker contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="60" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi9-Bj-asV">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="300" minuteInterval="5" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi9-Bj-asV">
                                         <rect key="frame" x="8" y="68" width="259" height="216"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <connections>
+                                            <action selector="DidPickTime:" destination="kIh-7M-uAW" eventType="valueChanged" id="69Z-do-X7j"/>
+                                        </connections>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -93,7 +96,7 @@
                         <viewLayoutGuide key="safeArea" id="u7v-2Q-3Er"/>
                     </view>
                     <connections>
-                        <outlet property="ActionLabel" destination="QhL-gg-JCk" id="MHz-S3-Wlz"/>
+                        <outlet property="ActionLabel" destination="QhL-gg-JCk" id="gJE-ya-WnG"/>
                         <outlet property="CancelLabel" destination="Uqv-8t-u8L" id="Ogz-ra-cRe"/>
                         <outlet property="TimerPicker" destination="Pi9-Bj-asV" id="Ftg-3C-xCL"/>
                         <outlet property="TitleLabel" destination="Ttz-Pf-Q04" id="HqS-e9-sAP"/>

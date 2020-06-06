@@ -38,7 +38,10 @@ class TimerViewController: UIViewController {
         dismiss(animated: true)
         buttonAction?()
     }
-//    @IBAction func datePickerChanged(_ sender: Any) {
+    @IBAction func DidPickTime(_ sender: UIDatePicker!) {
+        buttonAction?()
+    }
+    //    @IBAction func datePickerChanged(_ sender: Any) {
 //        //Change Date
 //        let dateFormatter = DateFormatter()
 //

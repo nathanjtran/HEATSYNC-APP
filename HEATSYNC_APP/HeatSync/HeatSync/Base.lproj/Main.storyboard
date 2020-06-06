@@ -15,48 +15,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tha-iG-qTt" userLabel="Vest Control">
-                                <rect key="frame" x="17" y="114" width="341" height="90"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Tha-iG-qTt" userLabel="Vest Control">
+                                <rect key="frame" x="17" y="104" width="341" height="220"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRn-l0-T7X">
-                                        <rect key="frame" x="0.0" y="0.0" width="341" height="30.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="341" height="76"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Set Vest Temp:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="MOx-dQ-6T2">
-                                                <rect key="frame" x="0.0" y="0.0" width="293" height="30.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="289.33333333333331" height="76"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="1" height="-2"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="29" translatesAutoresizingMaskIntoConstraints="NO" id="UKD-88-9r7">
-                                                <rect key="frame" x="293" y="0.0" width="48" height="30.666666666666668"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--°F" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="27" translatesAutoresizingMaskIntoConstraints="NO" id="UKD-88-9r7">
+                                                <rect key="frame" x="289.33333333333331" y="0.0" width="51.666666666666686" height="76"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="30" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="jWr-J3-zpc">
-                                        <rect key="frame" x="-2" y="31.666666666666657" width="345" height="27.666666666666671"/>
+                                        <rect key="frame" x="-2" y="76" width="345" height="69"/>
                                         <color key="minimumTrackTintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="maximumTrackTintColor" red="0.39665310040000001" green="0.91414345850000001" blue="0.82526581369999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="maximumTrackTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="thumbTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <connections>
                                             <action selector="sendVestTemp:" destination="BYZ-38-t0r" eventType="valueChanged" id="n1B-C9-rLV"/>
                                         </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJa-qd-eEm">
-                                        <rect key="frame" x="0.0" y="59.333333333333336" width="341" height="30.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="144" width="341" height="76"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Vest Temp Reading:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="SX3-lC-Vhq">
-                                                <rect key="frame" x="0.0" y="0.0" width="278.33333333333331" height="30.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="289.33333333333331" height="76"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="65°F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="29" translatesAutoresizingMaskIntoConstraints="NO" id="v3P-jX-yym">
-                                                <rect key="frame" x="278.33333333333331" y="0.0" width="62.666666666666686" height="30.666666666666668"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--°F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="v3P-jX-yym">
+                                                <rect key="frame" x="289.33333333333331" y="0.0" width="51.666666666666686" height="76"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -72,52 +72,31 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BnK-85-vQw" userLabel="Readings">
-                                <rect key="frame" x="47.666666666666657" y="274" width="280" height="364"/>
+                                <rect key="frame" x="17" y="394" width="341" height="244"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tCz-hd-AjL">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tCz-hd-AjL">
+                                        <rect key="frame" x="0.0" y="0.0" width="341" height="46"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Battery:" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="7l9-ye-sIv">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Battery:" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="7l9-ye-sIv">
+                                                <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="46"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="78%" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="7Gl-YU-HEs">
-                                                <rect key="frame" x="145" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--%" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Gl-YU-HEs">
+                                                <rect key="frame" x="170.66666666666663" y="0.0" width="170.33333333333337" height="46"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tk6-xU-R39">
-                                        <rect key="frame" x="0.0" y="64" width="280" height="44"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thI-S5-BHn">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                                <state key="normal" title="Cool State:">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="DidTapState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fpx-0c-jV9"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="qKK-0E-KfY">
-                                                <rect key="frame" x="145" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xqB-UV-dtD">
-                                        <rect key="frame" x="0.0" y="128" width="280" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xqB-UV-dtD">
+                                        <rect key="frame" x="0.0" y="66" width="341" height="46"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xh4-LS-wZt">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="46"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <state key="normal" title="Cool Time:">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
@@ -125,68 +104,53 @@
                                                     <action selector="DidTapCoolTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PRJ-wl-bEM"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="hW7-46-ZRG">
-                                                <rect key="frame" x="145" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00:00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="giD-Ec-CTu">
+                                                <rect key="frame" x="170.66666666666663" y="0.0" width="170.33333333333337" height="46"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fM4-b8-Re2">
-                                        <rect key="frame" x="0.0" y="192" width="280" height="44"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heart Rate:" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="nK7-jv-ssY">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="cdC-cO-Jpv">
-                                                <rect key="frame" x="145" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZRk-ED-OIx">
-                                        <rect key="frame" x="0.0" y="256" width="280" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ZRk-ED-OIx">
+                                        <rect key="frame" x="0.0" y="132" width="341" height="46"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth:" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-fs-iyl">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="46"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q8h-Dv-joe">
-                                                <rect key="frame" x="145" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q8h-Dv-joe">
+                                                <rect key="frame" x="170.66666666666663" y="0.0" width="170.33333333333337" height="46"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-QO-F64">
-                                        <rect key="frame" x="0.0" y="320" width="280" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="116" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-QO-F64">
+                                        <rect key="frame" x="0.0" y="198" width="341" height="46"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power:" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="B2A-4y-UAa">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="44"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="112.66666666666667" height="46"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="right" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" id="RW8-dg-dWs">
-                                                <rect key="frame" x="145" y="0.0" width="137" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HIY-lc-uPY">
+                                                <rect key="frame" x="228.66666666666666" y="0.0" width="114.33333333333334" height="46"/>
                                                 <color key="thumbTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <connections>
-                                                    <action selector="updatePower:" destination="BYZ-38-t0r" eventType="valueChanged" id="c8k-qI-SEg"/>
+                                                    <action selector="updatePower:" destination="BYZ-38-t0r" eventType="valueChanged" id="13G-Qw-KUh"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="341" id="RSW-rJ-eWn"/>
+                                </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="813-kX-evg">
                                 <rect key="frame" x="37.666666666666657" y="708" width="300" height="60"/>
@@ -209,6 +173,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="813-kX-evg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3tF-Nd-HdN"/>
                             <constraint firstItem="FGC-qH-9Ek" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CHS-QQ-10a"/>
@@ -216,25 +181,27 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FGC-qH-9Ek" secondAttribute="bottom" constant="10" id="MRJ-yu-BUP"/>
                             <constraint firstItem="BnK-85-vQw" firstAttribute="top" secondItem="Tha-iG-qTt" secondAttribute="bottom" constant="70" id="Rya-Qf-tPw"/>
                             <constraint firstItem="813-kX-evg" firstAttribute="top" secondItem="BnK-85-vQw" secondAttribute="bottom" constant="70" id="SUL-mA-YL3"/>
-                            <constraint firstItem="Tha-iG-qTt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="WF6-qx-h5C"/>
+                            <constraint firstItem="Tha-iG-qTt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="WF6-qx-h5C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="813-kX-evg" secondAttribute="bottom" constant="10" id="lD7-Sd-oXg"/>
                             <constraint firstItem="Tha-iG-qTt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t85-fF-jj1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="luc-ZM-ESS" appends="YES" id="Aem-Xr-RJl"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="batteryReading" destination="7Gl-YU-HEs" id="37E-1B-57H"/>
                         <outlet property="btRead" destination="Q8h-Dv-joe" id="eY0-4V-dTO"/>
-                        <outlet property="coolReading" destination="hW7-46-ZRG" id="OEM-P4-miz"/>
-                        <outlet property="coolStateReading" destination="qKK-0E-KfY" id="EP9-cx-7e0"/>
-                        <outlet property="heartReading" destination="cdC-cO-Jpv" id="R1a-99-2gv"/>
-                        <outlet property="powerSwitch" destination="RW8-dg-dWs" id="3DT-Xa-Cg4"/>
+                        <outlet property="coolTimeReading" destination="giD-Ec-CTu" id="fHV-mp-LFU"/>
+                        <outlet property="powerSwitch" destination="HIY-lc-uPY" id="GBp-qY-UJk"/>
                         <outlet property="vestTempReading" destination="v3P-jX-yym" id="POn-5Y-LRE"/>
                         <outlet property="vestTempSlider" destination="jWr-J3-zpc" id="N2u-4d-C6a"/>
                         <outlet property="vestTempSliderVal" destination="UKD-88-9r7" id="oAT-3I-r6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="luc-ZM-ESS"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="116.00985221674877"/>
         </scene>
